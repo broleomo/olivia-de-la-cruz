@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olivia De La Cruz — Singer-Songwriter</title>
+<meta name="description" content="Official site of Seattle singer-songwriter Olivia De La Cruz. Sultry, lyrical Americana, soul, and rock. Music, shows, and updates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#151312;
+    --ink-soft:#4a453f;
+    --cream:#f7f2e9;
+    --cream-dim:#efe7d8;
+    --charcoal:#17181a;
+    --charcoal-2:#1f2023;
+    --brass:#c69a4e;
+    --brass-light:#e0bc78;
+    --navy:#26324a;
+    --line-light:rgba(21,19,18,0.12);
+    --line-dark:rgba(247,242,233,0.14);
+    --radius:14px;
+    --container:1180px;
+    --sp-1:0.5rem;
+    --sp-2:0.85rem;
+    --sp-3:1.5rem;
+    --sp-4:2.5rem;
+    --sp-5:4rem;
+    --sp-6:6.5rem;
+    --font-display:'Fraunces', ui-serif, Georgia, 'Iowan Old Style', serif;
+    --font-body:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --ease:cubic-bezier(.22,.68,0,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:84px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  ul{list-style:none; margin:0; padding:0;}
+  h1,h2,h3,h4{font-family:var(--font-display); margin:0; font-weight:500; letter-spacing:-0.01em;}
+  p{margin:0;}
+  button{font:inherit; cursor:pointer;}
+
+  .skip-link{
+    position:absolute; left:-999px; top:0; background:var(--brass); color:var(--ink);
+    padding:0.75rem 1.25rem; z-index:200; border-radius:0 0 8px 0; font-weight:600;
+  }
+  .skip-link:focus{left:0;}
+
+  :focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+
+  .container{max-width:var(--container); margin-inline:auto; padding-inline:clamp(1.25rem, 4vw, 2.5rem);}
+
+  .eyebrow{
+    font-family:var(--font-body); font-weight:600; letter-spacing:0.18em; text-transform:uppercase;
+    font-size:0.72rem; color:var(--brass-light); display:inline-block; margin-bottom:var(--sp-2);
+  }
+  .section--light .eyebrow{color:#a1793a;}
+
+  .section{
+    padding-block:var(--sp-6);
+    position:relative;
+  }
+  .section--light{background:var(--cream); color:var(--ink);}
+  .section--dark{background:var(--charcoal); color:var(--cream);}
+  .section--dark .ink-soft{color:rgba(247,242,233,0.68);}
+  .section--light .ink-soft{color:var(--ink-soft);}
+
+  .section-head{max-width:640px; margin-bottom:var(--sp-5);}
+  .section-head h2{font-size:clamp(1.9rem, 3.2vw, 2.7rem); font-weight:500;}
+  .section-head p{margin-top:var(--sp-2); font-size:1.05rem;}
+  .section-head.center{margin-inline:auto; text-align:center;}
+
+  .grain{position:relative; isolation:isolate;}
+  .grain::after{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:0.5; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Header */
+  .site-header{
+    position:fixed; inset-block-start:0; inset-inline:0; z-index:100;
+    display:flex; flex-direction:column;
+    transition:background-color 0.35s var(--ease), box-shadow 0.35s var(--ease), padding 0.35s var(--ease);
+    padding-block:1.1rem;
+  }
+  .site-header.is-scrolled{
+    background:rgba(21,19,18,0.92); backdrop-filter:blur(10px);
+    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+    padding-block:0.6rem;
+  }
+  .header-inner{
+    max-width:var(--container); margin-inline:auto; width:100%;
+    padding-inline:clamp(1.25rem, 4vw, 2.5rem);
+    display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+  }
+  .brand{display:flex; align-items:center; gap:0.7rem; text-decoration:none; color:#fff;}
+  .brand-mark{width:38px; height:24px; color:var(--brass-light);}
+  .brand-name{
+    font-family:var(--font-display); font-size:1.05rem; letter-spacing:0.06em; text-transform:uppercase;
+  }
+  .site-nav ul{display:flex; gap:2rem;}
+  .site-nav a{
+    text-decoration:none; color:rgba(255,255,255,0.85); font-size:0.92rem; font-weight:500;
+    position:relative; padding-block:0.3rem;
+  }
+  .site-nav a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:-2px; height:2px; background:var(--brass-light);
+    transition:right 0.3s var(--ease);
+  }
+  .site-nav a:hover::after, .site-nav a.is-active::after{right:0;}
+  .site-nav a.is-active{color:#fff;}
+
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:38px; height:34px; background:transparent; border:none; padding:0;
+  }
+  .nav-toggle span{display:block; width:100%; height:2px; background:#fff; transition:transform 0.3s var(--ease), opacity 0.3s var(--ease);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-nav{
+    max-height:0; overflow:hidden; background:rgba(15,14,13,0.98);
+    transition:max-height 0.4s var(--ease);
+  }
+  .mobile-nav.is-open{max-height:420px;}
+  .mobile-nav ul{padding:1rem clamp(1.25rem, 4vw, 2.5rem) 1.5rem; display:flex; flex-direction:column; gap:0.2rem;}
+  .mobile-nav a{
+    display:block; padding:0.85rem 0; text-decoration:none; color:#fff; font-size:1.05rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Hero */
+  .hero{
+    min-height:100svh; display:flex; align-items:flex-end; position:relative; overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 10%, rgba(198,154,78,0.16), transparent 60%),
+      linear-gradient(200deg, #1c1b1a 0%, #0e0d0c 55%, #0a0a0a 100%);
+    color:#fff;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 6px);
+    opacity:0.5;
+  }
+  .hero-glow{
+    position:absolute; width:60vmax; height:60vmax; border-radius:50%;
+    background:radial-gradient(circle, rgba(198,154,78,0.22), transparent 65%);
+    top:-15vmax; right:-15vmax; filter:blur(10px);
+  }
+  .hero-inner{
+    position:relative; z-index:2; width:100%; max-width:var(--container); margin-inline:auto;
+    padding:calc(7rem + 2vw) clamp(1.25rem, 4vw, 2.5rem) var(--sp-6);
+    display:flex; flex-direction:column; gap:var(--sp-3);
+  }
+  .hero-kicker{
+    display:flex; align-items:center; gap:0.7rem; text-transform:uppercase; letter-spacing:0.22em;
+    font-size:0.72rem; font-weight:600; color:var(--brass-light);
+  }
+  .hero-kicker .dot{width:6px; height:6px; border-radius:50%; background:var(--brass-light); box-shadow:0 0 0 4px rgba(198,154,78,0.2);}
+  .hero h1{
+    font-size:clamp(2.8rem, 8vw, 6.2rem); line-height:0.98; max-width:16ch;
+  }
+  .hero h1 em{font-style:italic; color:var(--brass-light); font-weight:500;}
+  .hero-sub{
+    font-size:clamp(1.05rem, 1.6vw, 1.3rem); max-width:46ch; color:rgba(247,242,233,0.82); font-weight:400;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:1rem; margin-top:var(--sp-2);}
+  .hero-meta{
+    margin-top:var(--sp-5); display:flex; flex-wrap:wrap; gap:var(--sp-4) var(--sp-5);
+    border-top:1px solid var(--line-dark); padding-top:var(--sp-3);
+  }
+  .hero-meta div{display:flex; flex-direction:column; gap:0.2rem;}
+  .hero-meta .num{font-family:var(--font-display); font-size:1.6rem; color:var(--brass-light);}
+  .hero-meta .label{font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(247,242,233,0.6);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex; align-items:center; gap:0.55rem; padding:0.9rem 1.6rem; border-radius:999px;
+    font-weight:600; font-size:0.92rem; text-decoration:none; border:1px solid transparent;
+    transition:transform 0.25s var(--ease), background-color 0.25s var(--ease), color 0.25s var(--ease), border-color .25s var(--ease);
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--brass-light); color:#1a1509;}
+  .btn-primary:hover{background:#eecb8f;}
+  .btn-outline{border-color:rgba(255,255,255,0.35); color:#fff;}
+  .section--light .btn-outline{border-color:rgba(21,19,18,0.3); color:var(--ink);}
+  .btn-outline:hover{background:rgba(255,255,255,0.08);}
+  .section--light .btn-outline:hover{background:rgba(21,19,18,0.06);}
+  .btn-small{padding:0.6rem 1.1rem; font-size:0.82rem;}
+  .btn svg{width:16px; height:16px;}
+
+  /* Bio */
+  .bio-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:var(--sp-5); align-items:center;}
+  .bio-portrait{
+    aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden; position:relative;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(198,154,78,0.35), transparent 55%),
+      linear-gradient(160deg, #3a3632 0%, #17181a 60%, #050505 100%);
+  }
+  .bio-portrait::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 60px rgba(0,0,0,0.6);}
+  .bio-portrait .ph-label{
+    position:absolute; inset:auto 1.25rem 1.25rem auto; bottom:1.25rem; left:1.25rem;
+    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(247,242,233,0.55);
+  }
+  .pull-quote{
+    font-family:var(--font-display); font-style:italic; font-size:clamp(1.3rem, 2.2vw, 1.7rem);
+    color:var(--ink); margin-block:var(--sp-3); line-height:1.4; border-left:3px solid var(--brass);
+    padding-left:var(--sp-3);
+  }
+  .bio-facts{display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:var(--sp-3);}
+  .fact-pill{
+    border:1px solid var(--line-light); border-radius:999px; padding:0.45rem 1rem; font-size:0.82rem;
+    font-weight:500; color:var(--ink-soft);
+  }
+
+  /* Music */
+  .release-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--sp-4); margin-bottom:var(--sp-5);}
+  .release-card{
+    background:var(--charcoal-2); border:1px solid var(--line-dark); border-radius:var(--radius);
+    padding:var(--sp-3); display:flex; flex-direction:column; gap:var(--sp-3);
+  }
+  .release-top{display:flex; gap:1.1rem;}
+  .cover{
+    width:104px; height:104px; border-radius:10px; flex-shrink:0; position:relative; overflow:hidden;
+  }
+  .cover.c1{background:linear-gradient(155deg,#4a4038,#141312 70%);}
+  .cover.c2{background:linear-gradient(155deg,#39434f,#0d1013 70%);}
+  .cover::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 70% 20%, rgba(198,154,78,0.35), transparent 60%);}
+  .release-info h3{font-size:1.25rem; color:#fff;}
+  .release-info .artist{font-size:0.88rem; color:rgba(247,242,233,0.62); margin-top:0.25rem;}
+  .release-tags{display:flex; gap:0.4rem; margin-top:0.6rem; flex-wrap:wrap;}
+  .release-tags span{
+    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--brass-light);
+    border:1px solid rgba(198,154,78,0.4); border-radius:999px; padding:0.2rem 0.6rem;
+  }
+
+  .player{
+    background:rgba(0,0,0,0.28); border-radius:10px; padding:0.85rem 1rem;
+    display:flex; align-items:center; gap:0.9rem;
+  }
+  .play-btn{
+    width:42px; height:42px; border-radius:50%; background:var(--brass-light); border:none;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:#1a1509;
+    transition:transform 0.2s var(--ease);
+  }
+  .play-btn:hover{transform:scale(1.07);}
+  .play-btn svg{width:16px; height:16px;}
+  .player-body{flex:1; min-width:0;}
+  .player-track{display:flex; justify-content:space-between; font-size:0.8rem; color:rgba(247,242,233,0.65); margin-bottom:0.4rem;}
+  .progress{height:4px; border-radius:999px; background:rgba(255,255,255,0.14); overflow:hidden;}
+  .progress-fill{height:100%; width:0%; background:var(--brass-light); border-radius:999px;}
+
+  .release-actions{display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap;}
+  .price-btn{
+    background:transparent; border:1px solid rgba(198,154,78,0.5); color:var(--brass-light);
+    padding:0.5rem 1rem; border-radius:999px; font-size:0.82rem; font-weight:600; text-decoration:none;
+    transition:background-color 0.2s var(--ease);
+  }
+  .price-btn:hover{background:rgba(198,154,78,0.12);}
+  .icon-link{color:rgba(247,242,233,0.55); display:inline-flex; transition:color 0.2s var(--ease);}
+  .icon-link:hover{color:var(--brass-light);}
+  .icon-link svg{width:18px; height:18px;}
+
+  .platform-row{display:flex; flex-wrap:wrap; gap:0.7rem; align-items:center;}
+  .platform-chip{
+    display:inline-flex; align-items:center; gap:0.5rem; border:1px solid var(--line-dark);
+    border-radius:999px; padding:0.55rem 1rem 0.55rem 0.7rem; font-size:0.85rem; font-weight:500;
+    color:rgba(247,242,233,0.85); text-decoration:none; transition:border-color .2s var(--ease), background-color .2s var(--ease);
+  }
+  .platform-chip:hover{border-color:var(--brass-light); background:rgba(198,154,78,0.08);}
+  .platform-chip svg{width:17px; height:17px; color:var(--brass-light);}
+
+  /* Shows */
+  .shows-empty{
+    border:1px dashed var(--line-light); border-radius:var(--radius); padding:var(--sp-5);
+    text-align:center; display:flex; flex-direction:column; align-items:center; gap:1rem;
+  }
+  .shows-empty h3{font-size:1.4rem;}
+  .shows-actions{display:flex; gap:0.9rem; flex-wrap:wrap; justify-content:center; margin-top:0.4rem;}
+
+  /* Photos */
+  .gallery{
+    display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:160px; gap:0.8rem;
+  }
+  .gallery button{
+    all:unset; display:block; cursor:pointer; border-radius:10px; overflow:hidden; position:relative;
+    width:100%; height:100%;
+  }
+  .gallery button:focus-visible{outline:2px solid var(--brass-light); outline-offset:2px;}
+  .photo-tile{display:block; width:100%; height:100%; position:relative; transition:transform 0.5s var(--ease);}
+  .gallery button:hover .photo-tile{transform:scale(1.05);}
+  .photo-tile::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at var(--x,50%) var(--y,40%), rgba(198,154,78,0.25), transparent 60%),
+      linear-gradient(150deg, var(--c1), var(--c2) 75%);
+  }
+  .photo-tile .cam{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:rgba(247,242,233,0.35);
+  }
+  .photo-tile .cam svg{width:26px; height:26px;}
+  .g1{--c1:#3f3a35; --c2:#0f0e0d; --x:70%; --y:30%;}
+  .g2{--c1:#2c333d; --c2:#0a0c0f; --x:30%; --y:60%;}
+  .g3{--c1:#453a2c; --c2:#110d08; --x:50%; --y:20%;}
+  .g4{--c1:#33302c; --c2:#0c0b0a; --x:80%; --y:70%;}
+  .g5{--c1:#2a2f36; --c2:#0a0b0d; --x:20%; --y:40%;}
+  .g6{--c1:#3d372f; --c2:#100e0b; --x:60%; --y:60%;}
+  .g7{--c1:#302c3a; --c2:#0b0a0f; --x:40%; --y:30%;}
+  .g8{--c1:#3a352e; --c2:#0e0c09; --x:65%; --y:50%;}
+  .gallery button:nth-child(3n+1){grid-row:span 2;}
+
+  /* Connect */
+  .connect-section{
+    background:linear-gradient(165deg, #1b1f2b 0%, #101319 100%); color:var(--cream);
+  }
+  .connect-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:var(--sp-5);}
+  .connect-card{
+    background:rgba(247,242,233,0.05); border:1px solid rgba(247,242,233,0.12); border-radius:var(--radius);
+    padding:var(--sp-4);
+  }
+  .connect-card h3{font-size:1.4rem; color:#fff; margin-bottom:0.5rem;}
+  .connect-card p{color:rgba(247,242,233,0.68); margin-bottom:var(--sp-3);}
+  .signup-form{display:flex; gap:0.6rem; flex-wrap:wrap;}
+  .signup-form input{
+    flex:1; min-width:200px; padding:0.85rem 1.1rem; border-radius:999px; border:1px solid rgba(247,242,233,0.25);
+    background:rgba(0,0,0,0.25); color:#fff; font-size:0.95rem;
+  }
+  .signup-form input::placeholder{color:rgba(247,242,233,0.45);}
+  .signup-form input:focus-visible{outline:2px solid var(--brass-light);}
+  .form-note{font-size:0.8rem; color:rgba(247,242,233,0.5); margin-top:0.75rem;}
+  .form-success{
+    display:none; align-items:center; gap:0.5rem; margin-top:0.9rem; font-size:0.9rem; color:var(--brass-light);
+  }
+  .form-success.is-visible{display:flex;}
+  .form-success svg{width:16px; height:16px;}
+
+  .support-list{display:flex; flex-direction:column; gap:0.6rem; margin-top:var(--sp-2);}
+  .support-link{
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:0.9rem 1.1rem; border:1px solid rgba(247,242,233,0.14); border-radius:10px;
+    text-decoration:none; color:#fff; transition:border-color .2s var(--ease), background-color .2s var(--ease);
+  }
+  .support-link:hover{border-color:var(--brass-light); background:rgba(198,154,78,0.08);}
+  .support-link .plat{font-weight:600;}
+  .support-link .sub{font-size:0.78rem; color:rgba(247,242,233,0.55);}
+  .support-link svg{width:16px; height:16px; color:var(--brass-light);}
+
+  /* Contact */
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:var(--sp-5);}
+  .contact-form{display:flex; flex-direction:column; gap:1rem;}
+  .field label{display:block; font-size:0.82rem; font-weight:600; margin-bottom:0.4rem; color:var(--ink-soft);}
+  .field input, .field textarea{
+    width:100%; padding:0.85rem 1rem; border-radius:10px; border:1px solid var(--line-light);
+    background:#fff; font:inherit; color:var(--ink);
+  }
+  .field textarea{min-height:130px; resize:vertical;}
+  .field input:focus-visible, .field textarea:focus-visible{outline:2px solid var(--brass);}
+
+  .direct-contact{display:flex; flex-direction:column; gap:var(--sp-4);}
+  .direct-item h4{font-size:1rem; margin-bottom:0.35rem;}
+  .direct-item p, .direct-item a{color:var(--ink-soft); text-decoration:none; font-size:0.98rem;}
+  .direct-item a:hover{color:var(--brass); text-decoration:underline;}
+  .social-row{display:flex; gap:0.7rem; flex-wrap:wrap;}
+  .social-btn{
+    width:42px; height:42px; border-radius:50%; border:1px solid var(--line-light);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+    transition:border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+  }
+  .social-btn:hover{border-color:var(--brass); color:var(--brass); transform:translateY(-2px);}
+  .social-btn svg{width:18px; height:18px;}
+
+  /* Footer */
+  .site-footer{background:#0c0c0d; color:rgba(247,242,233,0.6); padding-block:var(--sp-4);}
+  .footer-inner{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.5rem;
+  }
+  .footer-brand{display:flex; align-items:center; gap:0.6rem; color:#fff;}
+  .footer-brand .brand-mark{width:30px; height:19px; color:var(--brass-light);}
+  .footer-links{display:flex; gap:1.4rem; flex-wrap:wrap; font-size:0.85rem;}
+  .footer-links a{text-decoration:none; color:rgba(247,242,233,0.6);}
+  .footer-links a:hover{color:var(--brass-light);}
+  .footer-bottom{
+    margin-top:var(--sp-3); padding-top:var(--sp-3); border-top:1px solid rgba(247,242,233,0.08);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.75rem; font-size:0.78rem;
+  }
+
+  /* Reveal */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity 0.7s var(--ease), transform 0.7s var(--ease);}
+  .reveal.is-visible{opacity:1; transform:none;}
+
+  /* Back to top */
+  .to-top{
+    position:fixed; right:1.5rem; bottom:1.5rem; z-index:90; width:46px; height:46px; border-radius:50%;
+    background:var(--brass-light); color:#1a1509; border:none; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.3); opacity:0; pointer-events:none; transform:translateY(10px);
+    transition:opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .to-top.is-visible{opacity:1; pointer-events:auto; transform:none;}
+  .to-top svg{width:18px; height:18px;}
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed; inset:0; z-index:200; background:rgba(6,6,6,0.92);
+    display:flex; align-items:center; justify-content:center; padding:2rem;
+  }
+  .lightbox[hidden]{display:none;}
+  .lightbox-frame{
+    width:min(560px, 100%); aspect-ratio:4/5; border-radius:16px; position:relative; overflow:hidden;
+  }
+  .lightbox-caption{
+    position:absolute; bottom:0; left:0; right:0; padding:1.2rem; color:#fff;
+    background:linear-gradient(0deg, rgba(0,0,0,0.6), transparent); font-size:0.85rem;
+  }
+  .lightbox-close{
+    position:absolute; top:1.5rem; right:1.5rem; width:44px; height:44px; border-radius:50%;
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.25); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-close:hover{background:rgba(255,255,255,0.2);}
+  .lightbox-close svg{width:18px; height:18px;}
+  .lightbox-nav{
+    position:absolute; top:50%; translate:0 -50%; width:46px; height:46px; border-radius:50%;
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.25); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-nav:hover{background:rgba(255,255,255,0.2);}
+  .lightbox-nav svg{width:18px; height:18px;}
+  .lb-prev{left:-1rem;}
+  .lb-next{right:-1rem;}
+  @media (max-width:640px){.lb-prev{left:0.5rem;} .lb-next{right:0.5rem;}}
+
+  /* Responsive */
+  @media (max-width:980px){
+    .site-nav, .header-inner .btn{display:none;}
+    .nav-toggle{display:flex;}
+    .bio-grid, .connect-grid, .contact-grid{grid-template-columns:1fr; gap:var(--sp-4);}
+    .bio-portrait{max-width:340px;}
+    .release-grid{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:520px){
+    .hero-meta{gap:var(--sp-3);}
+    .release-top{flex-direction:column;}
+    .cover{width:100%; height:150px;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l14 8-14 8V4z" fill="currentColor"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="17.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.6" fill="none"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M8 7l1.6-2.5h4.8L16 7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13.5" r="3.4" stroke="currentColor" stroke-width="1.6" fill="none"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8.5h2.5V5H14c-2.2 0-4 1.8-4 4v2H8v3.5h2V21h3.5v-6.5H16l.5-3.5h-3V9c0-.6.4-.5.5-.5z" fill="currentColor"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10.5 9.5l5 2.5-5 2.5v-5z" fill="currentColor"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 4v9.2a2.8 2.8 0 1 1-2-2.68" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M14 4c.3 2 1.8 3.5 4 3.8" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-vimeo" viewBox="0 0 24 24"><path d="M4 9.2l3.8-.4c1 3.6 1.7 6 2.1 7.1.9-1.4 2-3.7 3.4-6.8-.3-1.2-1-1.7-2-1.5.6-2.2 2-3.3 4-3.2 1.9.1 2.7 1.4 2.3 3.8-.4 2.5-2.3 6.6-5.6 10.9-1.1 1.4-2.2 1.5-3.1.2C7.5 16.6 5.9 12.9 4 9.2z" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V6M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 3v18M8 8.5c0-1.9 1.8-3.2 4-3.2s4 1.1 4 2.7c0 3.6-8 1.8-8 5.4 0 1.6 1.8 2.7 4 2.7s4-1.3 4-3.2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="brand" aria-label="Olivia De La Cruz — Home">
+      <svg class="brand-mark" viewBox="0 0 100 60" aria-hidden="true">
+        <circle cx="34" cy="30" r="24" fill="none" stroke="currentColor" stroke-width="5.5"/>
+        <circle cx="66" cy="30" r="24" fill="none" stroke="currentColor" stroke-width="5.5"/>
+      </svg>
+      <span class="brand-name">Olivia De La Cruz</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#bio" data-nav>Bio</a></li>
+        <li><a href="#music" data-nav>Music</a></li>
+        <li><a href="#shows" data-nav>Shows</a></li>
+        <li><a href="#photos" data-nav>Photos</a></li>
+        <li><a href="#connect" data-nav>Connect</a></li>
+        <li><a href="#contact" data-nav>Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#connect" class="btn btn-primary btn-small">
+      <svg viewBox="0 0 24 24"><use href="#i-note"/></svg>
+      Listen Now
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <ul>
+      <li><a href="#bio" data-nav>Bio</a></li>
+      <li><a href="#music" data-nav>Music</a></li>
+      <li><a href="#shows" data-nav>Shows</a></li>
+      <li><a href="#photos" data-nav>Photos</a></li>
+      <li><a href="#connect" data-nav>Connect</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section id="home" class="hero grain">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-kicker reveal"><span class="dot"></span> Seattle, WA — Singer / Songwriter</div>
+      <h1 class="reveal">Sultry stories, <em>lived-in</em> songs.</h1>
+      <p class="hero-sub reveal">Olivia De La Cruz writes Americana, soul, and rock built from travel, friendship, love, and heartbreak — raised in the orchard country of Lake Chelan, made in Seattle.</p>
+      <div class="hero-actions reveal">
+        <a href="#music" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><use href="#i-play"/></svg>
+          Hear the new single
+        </a>
+        <a href="#connect" class="btn btn-outline">
+          <svg viewBox="0 0 24 24"><use href="#i-mail"/></svg>
+          Join the mailing list
+        </a>
+      </div>
+      <div class="hero-meta reveal">
+        <div><span class="num">2</span><span class="label">Studio Albums</span></div>
+        <div><span class="num">2026</span><span class="label">Recorded at Robert Lang Studios</span></div>
+        <div><span class="num">WA</span><span class="label">Based in Seattle</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bio" class="section section--light">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-portrait reveal">
+          <span class="ph-label">Photo — add press image</span>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Bio</span>
+          <h2>Raised in orchard country, built in the clubs of Seattle.</h2>
+          <p class="pull-quote">"Every song starts as a true story — I just find out how it ends while I'm writing it."</p>
+          <p class="ink-soft">Born and raised in the valley of Lake Chelan, Washington, Olivia De La Cruz writes songs that sit at the crossroads of Americana, soul, and rock — sultry and lyrical, built from lived-in stories of travel, friendship, love, and heartbreak. Her self-titled debut arrived in 2013; her sophomore record, <strong>House of Memory</strong>, followed in 2019. Most recently, she returned to Seattle's legendary Robert Lang Studios to record the singles "Light" and "Muse and Composer."</p>
+          <div class="bio-facts">
+            <span class="fact-pill">Americana</span>
+            <span class="fact-pill">Soul</span>
+            <span class="fact-pill">Rock</span>
+            <span class="fact-pill">Lake Chelan, WA</span>
+            <span class="fact-pill">Robert Lang Studios</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="music" class="section section--dark grain">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Music</span>
+        <h2>New releases</h2>
+        <p class="ink-soft">Recorded at Robert Lang Studios, Seattle. Stream everywhere or grab a direct download.</p>
+      </div>
+
+      <div class="release-grid">
+        <article class="release-card reveal">
+          <div class="release-top">
+            <div class="cover c1"></div>
+            <div class="release-info">
+              <h3>Muse and Composer</h3>
+              <p class="artist">Olivia De La Cruz</p>
+              <div class="release-tags"><span>Single</span><span>2026</span></div>
+            </div>
+          </div>
+          <div class="player" data-player data-duration="229">
+            <button class="play-btn" data-play aria-label="Play preview of Muse and Composer">
+              <svg viewBox="0 0 24 24" data-icon><use href="#i-play"/></svg>
+            </button>
+            <div class="player-body">
+              <div class="player-track">
+                <span>Muse and Composer</span>
+                <span data-time>0:00 / 3:49</span>
+              </div>
+              <div class="progress"><div class="progress-fill" data-fill></div></div>
+            </div>
+          </div>
+          <div class="release-actions">
+            <a href="#" class="price-btn">Download · $1.19</a>
+            <a href="#" class="icon-link" aria-label="Share Muse and Composer">
+              <svg viewBox="0 0 24 24"><use href="#i-note"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="release-card reveal">
+          <div class="release-top">
+            <div class="cover c2"></div>
+            <div class="release-info">
+              <h3>Light</h3>
+              <p class="artist">Olivia De La Cruz ft. Torin Frost</p>
+              <div class="release-tags"><span>Single</span><span>2026</span></div>
+            </div>
+          </div>
+          <div class="player" data-player data-duration="204">
+            <button class="play-btn" data-play aria-label="Play preview of Light">
+              <svg viewBox="0 0 24 24" data-icon><use href="#i-play"/></svg>
+            </button>
+            <div class="player-body">
+              <div class="player-track">
+                <span>Light</span>
+                <span data-time>0:00 / 3:24</span>
+              </div>
+              <div class="progress"><div class="progress-fill" data-fill></div></div>
+            </div>
+          </div>
+          <div class="release-actions">
+            <a href="#" class="price-btn">Download · $1.19</a>
+            <a href="#" class="icon-link" aria-label="Share Light">
+              <svg viewBox="0 0 24 24"><use href="#i-note"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow">Stream everywhere</span>
+        <div class="platform-row">
+          <a class="platform-chip" href="#"><svg viewBox="0 0 24 24"><use href="#i-note"/></svg> Spotify</a>
+          <a class="platform-chip" href="#"><svg viewBox="0 0 24 24"><use href="#i-note"/></svg> Apple Music</a>
+          <a class="platform-chip" href="#"><svg viewBox="0 0 24 24"><use href="#i-yt"/></svg> YouTube</a>
+          <a class="platform-chip" href="#"><svg viewBox="0 0 24 24"><use href="#i-note"/></svg> Amazon Music</a>
+          <a class="platform-chip" href="#"><svg viewBox="0 0 24 24"><use href="#i-note"/></svg> Bandcamp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shows" class="section section--light">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Shows</span>
+        <h2>Show dates</h2>
+      </div>
+      <div class="shows-empty reveal">
+        <svg viewBox="0 0 24 24" style="width:34px;height:34px;color:#a1793a;"><use href="#i-note"/></svg>
+        <h3>Nothing on the books right now</h3>
+        <p class="ink-soft">New dates get announced to the mailing list first. Booking a venue? I'd love to hear from you.</p>
+        <div class="shows-actions">
+          <a href="#connect" class="btn btn-primary btn-small">Join the mailing list</a>
+          <a href="#contact" class="btn btn-outline btn-small">Request a show</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" class="section section--dark grain">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Photos</span>
+        <h2>On stage &amp; in the studio</h2>
+        <p class="ink-soft">Placeholder gallery — swap these tiles for real press &amp; live shots.</p>
+      </div>
+      <div class="gallery reveal" id="gallery">
+        <button data-caption="Studio session — Robert Lang Studios"><span class="photo-tile g1"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="Live at a Seattle venue"><span class="photo-tile g2"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="Portrait, Lake Chelan"><span class="photo-tile g3"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="Backstage"><span class="photo-tile g4"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="House of Memory album shoot"><span class="photo-tile g5"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="With the band"><span class="photo-tile g6"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="Acoustic set"><span class="photo-tile g7"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="Muse and Composer single art"><span class="photo-tile g8"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="connect" class="section connect-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="color:var(--brass-light)">Connect</span>
+        <h2 style="color:#fff">Stay in the loop, support the music</h2>
+      </div>
+      <div class="connect-grid">
+        <div class="connect-card reveal">
+          <h3>Mailing list</h3>
+          <p>Updates about shows, new music, and other fun news — straight to your inbox, no spam.</p>
+          <form class="signup-form" data-signup-form>
+            <label class="visually-hidden" for="signupEmail">Email address</label>
+            <input id="signupEmail" type="email" required placeholder="Your email" autocomplete="email">
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </form>
+          <p class="form-note">This is a front-end prototype — hook this form up to your mailing list provider (Mailchimp, Substack, etc.) before launch.</p>
+          <p class="form-success" data-signup-success><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Thanks — you're on the list.</p>
+        </div>
+
+        <div class="connect-card reveal">
+          <h3>Support the music</h3>
+          <p>Independent, self-funded, and grateful for every bit of support.</p>
+          <div class="support-list">
+            <a class="support-link" href="https://account.venmo.com/u/OliviaDeLaCruz">
+              <span><span class="plat">Venmo</span><br><span class="sub">@OliviaDeLaCruz</span></span>
+              <svg viewBox="0 0 24 24"><use href="#i-dollar"/></svg>
+            </a>
+            <a class="support-link" href="https://paypal.me/oliviadelacruz">
+              <span><span class="plat">PayPal</span><br><span class="sub">paypal.me/oliviadelacruz</span></span>
+              <svg viewBox="0 0 24 24"><use href="#i-dollar"/></svg>
+            </a>
+            <a class="support-link" href="https://cash.app/$OliviaDeLaCruz">
+              <span><span class="plat">Cash App</span><br><span class="sub">$OliviaDeLaCruz</span></span>
+              <svg viewBox="0 0 24 24"><use href="#i-dollar"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section--light">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Booking, press &amp; general inquiries</h2>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form reveal" data-contact-form>
+          <div class="field">
+            <label for="cName">Name</label>
+            <input id="cName" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="cEmail">Email</label>
+            <input id="cEmail" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="cMessage">Message</label>
+            <textarea id="cMessage" required placeholder="Tell me about the show, press feature, or project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+          <p class="form-note">Prototype form — wire this up to your email service or booking inbox before launch.</p>
+          <p class="form-success" data-contact-success><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Message sent — thanks for reaching out.</p>
+        </form>
+
+        <div class="direct-contact reveal">
+          <div class="direct-item">
+            <h4>Booking &amp; press</h4>
+            <a href="mailto:booking@oliviadelacruz.com">booking@oliviadelacruz.com</a>
+          </div>
+          <div class="direct-item">
+            <h4>Follow along</h4>
+            <div class="social-row">
+              <a class="social-btn" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg></a>
+              <a class="social-btn" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><use href="#i-fb"/></svg></a>
+              <a class="social-btn" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><use href="#i-yt"/></svg></a>
+              <a class="social-btn" href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><use href="#i-tiktok"/></svg></a>
+              <a class="social-btn" href="#" aria-label="Vimeo"><svg viewBox="0 0 24 24"><use href="#i-vimeo"/></svg></a>
+            </div>
+          </div>
+          <div class="direct-item">
+            <h4>Press kit</h4>
+            <p>An electronic press kit is available on request — <a href="mailto:booking@oliviadelacruz.com">email for a copy</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <svg class="brand-mark" viewBox="0 0 100 60" aria-hidden="true">
+        <circle cx="34" cy="30" r="24" fill="none" stroke="currentColor" stroke-width="5.5"/>
+        <circle cx="66" cy="30" r="24" fill="none" stroke="currentColor" stroke-width="5.5"/>
+      </svg>
+      <span>Olivia De La Cruz</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#bio">Bio</a>
+      <a href="#music">Music</a>
+      <a href="#shows">Shows</a>
+      <a href="#photos">Photos</a>
+      <a href="#connect">Connect</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span id="year"></span> Olivia De La Cruz. All rights reserved.</span>
+    <span>Prototype design — built as a first-pass modernization.</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><use href="#i-arrow-up"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-nav lb-prev" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24"><use href="#i-chevron-left"/></svg></button>
+  <div class="lightbox-frame" id="lbFrame">
+    <span class="lightbox-caption" id="lbCaption"></span>
+  </div>
+  <button class="lightbox-nav lb-next" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 24 24"><use href="#i-chevron-right"/></svg></button>
+  <button class="lightbox-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24"><use href="#i-x"/></svg></button>
+</div>
+
+<style>.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}</style>
+
+<script>
+(function(){
+  "use strict";
+
+  var header = document.getElementById('siteHeader');
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    header.classList.toggle('is-scrolled', y > 40);
+    toTop.classList.toggle('is-visible', y > 700);
+  }, { passive: true });
+
+  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', function(){
+    var open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    mobileNav.classList.toggle('is-open', !open);
+    navToggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navToggle.setAttribute('aria-expanded', 'false');
+      mobileNav.classList.remove('is-open');
+    });
+  });
+
+  toTop.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  var navLinks = document.querySelectorAll('[data-nav]');
+  var sections = Array.prototype.map.call(navLinks, function(a){
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
+
+  var navObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        var id = '#' + entry.target.id;
+        navLinks.forEach(function(a){
+          a.classList.toggle('is-active', a.getAttribute('href') === id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(function(s){ navObserver.observe(s); });
+
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
+
+  document.querySelectorAll('[data-player]').forEach(function(player){
+    var playBtn = player.querySelector('[data-play]');
+    var icon = player.querySelector('[data-icon]');
+    var fill = player.querySelector('[data-fill]');
+    var timeEl = player.querySelector('[data-time]');
+    var duration = parseFloat(player.getAttribute('data-duration'), 10);
+    var totalLabel = timeEl.textContent.split(' / ')[1];
+    var raf = null, startTs = null, elapsed = 0, playing = false;
+
+    function fmt(s){
+      var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+    function stopAll(){
+      document.querySelectorAll('[data-player]').forEach(function(p){
+        if (p !== player && p._stop) p._stop();
+      });
+    }
+    function tick(ts){
+      if (!startTs) startTs = ts - elapsed;
+      elapsed = ts - startTs;
+      var pct = Math.min(elapsed / (duration * 1000), 1);
+      fill.style.width = (pct * 100) + '%';
+      timeEl.textContent = fmt(pct * duration) + ' / ' + totalLabel;
+      if (pct >= 1) { reset(); return; }
+      raf = requestAnimationFrame(tick);
+    }
+    function reset(){
+      playing = false; startTs = null; elapsed = 0;
+      cancelAnimationFrame(raf);
+      fill.style.width = '0%';
+      timeEl.textContent = '0:00 / ' + totalLabel;
+      icon.innerHTML = '<use href="#i-play"/>';
+      playBtn.setAttribute('aria-label', playBtn.getAttribute('aria-label').replace('Pause', 'Play'));
+    }
+    player._stop = function(){ if (playing) reset(); };
+
+    playBtn.addEventListener('click', function(){
+      if (playing) { reset(); return; }
+      stopAll();
+      playing = true;
+      icon.innerHTML = '<use href="#i-pause"/>';
+      raf = requestAnimationFrame(tick);
+    });
+  });
+
+  var gallery = document.getElementById('gallery');
+  var tiles = Array.prototype.slice.call(gallery.querySelectorAll('button'));
+  var lightbox = document.getElementById('lightbox');
+  var lbFrame = document.getElementById('lbFrame');
+  var lbCaption = document.getElementById('lbCaption');
+  var currentIndex = 0;
+  var lastFocused = null;
+
+  function paintFrame(i){
+    var tile = tiles[i];
+    var tileClass = Array.prototype.find.call(tile.querySelector('.photo-tile').classList, function(c){
+      return /^g\d$/.test(c);
+    });
+    lbFrame.className = 'lightbox-frame photo-tile ' + tileClass;
+    lbCaption.textContent = tile.getAttribute('data-caption');
+  }
+  function openLightbox(i){
+    currentIndex = i;
+    paintFrame(i);
+    lastFocused = document.activeElement;
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
+  }
+  function closeLightbox(){
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+  function step(dir){
+    currentIndex = (currentIndex + dir + tiles.length) % tiles.length;
+    paintFrame(currentIndex);
+  }
+  tiles.forEach(function(btn, i){
+    btn.addEventListener('click', function(){ openLightbox(i); });
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', function(){ step(-1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ step(1); });
+  lightbox.addEventListener('click', function(e){
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e){
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  function fakeSubmit(form, successEl){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      successEl.classList.add('is-visible');
+      form.reset();
+      setTimeout(function(){ successEl.classList.remove('is-visible'); }, 6000);
+    });
+  }
+  fakeSubmit(document.querySelector('[data-signup-form]'), document.querySelector('[data-signup-success]'));
+  fakeSubmit(document.querySelector('[data-contact-form]'), document.querySelector('[data-contact-success]'));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
