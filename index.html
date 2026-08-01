@@ -149,8 +149,9 @@
   .hero{
     min-height:100svh; display:flex; align-items:flex-end; position:relative; overflow:hidden;
     background:
+      linear-gradient(200deg, rgba(12,11,10,0.55) 0%, rgba(9,8,7,0.78) 55%, rgba(6,6,6,0.94) 100%),
       radial-gradient(120% 90% at 80% 10%, rgba(198,154,78,0.16), transparent 60%),
-      linear-gradient(200deg, #1c1b1a 0%, #0e0d0c 55%, #0a0a0a 100%);
+      url("public/hero-image.webp") center 25% / cover no-repeat;
     color:#fff;
   }
   .hero::before{
@@ -210,15 +211,10 @@
   .bio-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:var(--sp-5); align-items:center;}
   .bio-portrait{
     aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden; position:relative;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(198,154,78,0.35), transparent 55%),
-      linear-gradient(160deg, #3a3632 0%, #17181a 60%, #050505 100%);
+    background:#17181a;
   }
-  .bio-portrait::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 60px rgba(0,0,0,0.6);}
-  .bio-portrait .ph-label{
-    position:absolute; inset:auto 1.25rem 1.25rem auto; bottom:1.25rem; left:1.25rem;
-    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(247,242,233,0.55);
-  }
+  .bio-portrait img{width:100%; height:100%; object-fit:cover; display:block;}
+  .bio-portrait::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 60px rgba(0,0,0,0.35); pointer-events:none;}
   .pull-quote{
     font-family:var(--font-display); font-style:italic; font-size:clamp(1.3rem, 2.2vw, 1.7rem);
     color:var(--ink); margin-block:var(--sp-3); line-height:1.4; border-left:3px solid var(--brass);
@@ -297,33 +293,18 @@
 
   /* Photos */
   .gallery{
-    display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:160px; gap:0.8rem;
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:0.8rem;
   }
   .gallery button{
     all:unset; display:block; cursor:pointer; border-radius:10px; overflow:hidden; position:relative;
-    width:100%; height:100%;
+    width:100%; aspect-ratio:4/5; background:#0e0d0c;
   }
   .gallery button:focus-visible{outline:2px solid var(--brass-light); outline-offset:2px;}
-  .photo-tile{display:block; width:100%; height:100%; position:relative; transition:transform 0.5s var(--ease);}
-  .gallery button:hover .photo-tile{transform:scale(1.05);}
-  .photo-tile::before{
-    content:""; position:absolute; inset:0;
-    background:radial-gradient(circle at var(--x,50%) var(--y,40%), rgba(198,154,78,0.25), transparent 60%),
-      linear-gradient(150deg, var(--c1), var(--c2) 75%);
+  .photo-tile{display:block; width:100%; height:100%; position:relative; overflow:hidden;}
+  .photo-tile img{
+    width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s var(--ease);
   }
-  .photo-tile .cam{
-    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:rgba(247,242,233,0.35);
-  }
-  .photo-tile .cam svg{width:26px; height:26px;}
-  .g1{--c1:#3f3a35; --c2:#0f0e0d; --x:70%; --y:30%;}
-  .g2{--c1:#2c333d; --c2:#0a0c0f; --x:30%; --y:60%;}
-  .g3{--c1:#453a2c; --c2:#110d08; --x:50%; --y:20%;}
-  .g4{--c1:#33302c; --c2:#0c0b0a; --x:80%; --y:70%;}
-  .g5{--c1:#2a2f36; --c2:#0a0b0d; --x:20%; --y:40%;}
-  .g6{--c1:#3d372f; --c2:#100e0b; --x:60%; --y:60%;}
-  .g7{--c1:#302c3a; --c2:#0b0a0f; --x:40%; --y:30%;}
-  .g8{--c1:#3a352e; --c2:#0e0c09; --x:65%; --y:50%;}
-  .gallery button:nth-child(3n+1){grid-row:span 2;}
+  .gallery button:hover .photo-tile img{transform:scale(1.06);}
 
   /* Connect */
   .connect-section{
@@ -421,8 +402,9 @@
   }
   .lightbox[hidden]{display:none;}
   .lightbox-frame{
-    width:min(560px, 100%); aspect-ratio:4/5; border-radius:16px; position:relative; overflow:hidden;
+    width:min(560px, 100%); aspect-ratio:4/5; border-radius:16px; position:relative; overflow:hidden; background:#0e0d0c;
   }
+  .lightbox-frame img{width:100%; height:100%; object-fit:cover; display:block;}
   .lightbox-caption{
     position:absolute; bottom:0; left:0; right:0; padding:1.2rem; color:#fff;
     background:linear-gradient(0deg, rgba(0,0,0,0.6), transparent); font-size:0.85rem;
@@ -552,7 +534,7 @@
     <div class="container">
       <div class="bio-grid">
         <div class="bio-portrait reveal">
-          <span class="ph-label">Photo — add press image</span>
+          <img src="public/olivia-headshot1.webp" alt="Olivia De La Cruz portrait" loading="lazy">
         </div>
         <div class="reveal">
           <span class="eyebrow">Bio</span>
@@ -675,17 +657,13 @@
       <div class="section-head reveal">
         <span class="eyebrow">Photos</span>
         <h2>On stage &amp; in the studio</h2>
-        <p class="ink-soft">Placeholder gallery — swap these tiles for real press &amp; live shots.</p>
+        <p class="ink-soft">A few shots from the studio and on location.</p>
       </div>
       <div class="gallery reveal" id="gallery">
-        <button data-caption="Studio session — Robert Lang Studios"><span class="photo-tile g1"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
-        <button data-caption="Live at a Seattle venue"><span class="photo-tile g2"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
-        <button data-caption="Portrait, Lake Chelan"><span class="photo-tile g3"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
-        <button data-caption="Backstage"><span class="photo-tile g4"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
-        <button data-caption="House of Memory album shoot"><span class="photo-tile g5"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
-        <button data-caption="With the band"><span class="photo-tile g6"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
-        <button data-caption="Acoustic set"><span class="photo-tile g7"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
-        <button data-caption="Muse and Composer single art"><span class="photo-tile g8"><span class="cam"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span></span></button>
+        <button data-caption="In the studio"><span class="photo-tile"><img src="public/hero-image.webp" alt="Olivia De La Cruz in the studio" loading="lazy"></span></button>
+        <button data-caption="Portrait"><span class="photo-tile"><img src="public/olivia-headshot1.webp" alt="Portrait of Olivia De La Cruz" loading="lazy"></span></button>
+        <button data-caption="Backyard session"><span class="photo-tile"><img src="public/olivia-headshot-2.webp" alt="Olivia De La Cruz outdoors" loading="lazy"></span></button>
+        <button data-caption="On location"><span class="photo-tile"><img src="public/olivia-lp.webp" alt="Olivia De La Cruz on location" loading="lazy"></span></button>
       </div>
     </div>
   </section>
@@ -879,36 +857,102 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
 
-  document.querySelectorAll('[data-player]').forEach(function(player){
+  var sharedAudioCtx = null;
+  function getAudioCtx(){
+    if (!sharedAudioCtx) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      sharedAudioCtx = new AC();
+    }
+    if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+    return sharedAudioCtx;
+  }
+  // Soft ambient chords standing in for real audio/streaming embeds — one per track.
+  var PLAYER_CHORDS = [
+    [196.00, 246.94, 293.66, 392.00],
+    [174.61, 220.00, 261.63, 349.23]
+  ];
+
+  document.querySelectorAll('[data-player]').forEach(function(player, playerIndex){
     var playBtn = player.querySelector('[data-play]');
     var icon = player.querySelector('[data-icon]');
     var fill = player.querySelector('[data-fill]');
     var timeEl = player.querySelector('[data-time]');
     var duration = parseFloat(player.getAttribute('data-duration'), 10);
     var totalLabel = timeEl.textContent.split(' / ')[1];
-    var raf = null, startTs = null, elapsed = 0, playing = false;
+    var raf = null, playing = false, audio = null;
 
     function fmt(s){
       var m = Math.floor(s / 60), sec = Math.floor(s % 60);
       return m + ':' + (sec < 10 ? '0' : '') + sec;
     }
-    function stopAll(){
+    function stopOtherPlayers(){
       document.querySelectorAll('[data-player]').forEach(function(p){
         if (p !== player && p._stop) p._stop();
       });
     }
-    function tick(ts){
-      if (!startTs) startTs = ts - elapsed;
-      elapsed = ts - startTs;
-      var pct = Math.min(elapsed / (duration * 1000), 1);
+    function startAudio(){
+      var ctx = getAudioCtx();
+      var now = ctx.currentTime;
+      var masterGain = ctx.createGain();
+      masterGain.gain.setValueAtTime(0, now);
+      masterGain.gain.linearRampToValueAtTime(0.08, now + 0.7);
+      masterGain.gain.setValueAtTime(0.08, now + Math.max(duration - 0.6, 0.7));
+      masterGain.gain.linearRampToValueAtTime(0, now + duration);
+
+      var filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 1100;
+      filter.Q.value = 0.6;
+      filter.connect(masterGain);
+      masterGain.connect(ctx.destination);
+
+      var chord = PLAYER_CHORDS[playerIndex % PLAYER_CHORDS.length];
+      var oscillators = chord.map(function(freq, i){
+        var osc = ctx.createOscillator();
+        osc.type = i === 0 ? 'triangle' : 'sine';
+        osc.frequency.value = freq;
+        osc.detune.value = (i - chord.length / 2) * 3;
+        osc.connect(filter);
+        osc.start(now);
+        osc.stop(now + duration + 0.05);
+        return osc;
+      });
+
+      var lfo = ctx.createOscillator();
+      lfo.frequency.value = 0.15;
+      var lfoGain = ctx.createGain();
+      lfoGain.gain.value = 0.015;
+      lfo.connect(lfoGain);
+      lfoGain.connect(masterGain.gain);
+      lfo.start(now);
+      lfo.stop(now + duration + 0.05);
+
+      audio = { ctx: ctx, masterGain: masterGain, oscillators: oscillators.concat([lfo]), startCtxTime: now };
+    }
+    function stopAudio(fadeOut){
+      if (!audio) return;
+      var ctx = audio.ctx;
+      var now = ctx.currentTime;
+      var release = fadeOut ? 0.25 : 0.02;
+      audio.masterGain.gain.cancelScheduledValues(now);
+      audio.masterGain.gain.setValueAtTime(audio.masterGain.gain.value, now);
+      audio.masterGain.gain.linearRampToValueAtTime(0, now + release);
+      audio.oscillators.forEach(function(osc){ try { osc.stop(now + release + 0.05); } catch (e) {} });
+      audio = null;
+    }
+    function tick(){
+      if (!audio) return;
+      var elapsed = audio.ctx.currentTime - audio.startCtxTime;
+      var pct = Math.min(elapsed / duration, 1);
       fill.style.width = (pct * 100) + '%';
       timeEl.textContent = fmt(pct * duration) + ' / ' + totalLabel;
       if (pct >= 1) { reset(); return; }
       raf = requestAnimationFrame(tick);
     }
     function reset(){
-      playing = false; startTs = null; elapsed = 0;
+      playing = false;
       cancelAnimationFrame(raf);
+      stopAudio(true);
       fill.style.width = '0%';
       timeEl.textContent = '0:00 / ' + totalLabel;
       icon.innerHTML = '<use href="#i-play"/>';
@@ -918,9 +962,11 @@
 
     playBtn.addEventListener('click', function(){
       if (playing) { reset(); return; }
-      stopAll();
+      stopOtherPlayers();
       playing = true;
+      startAudio();
       icon.innerHTML = '<use href="#i-pause"/>';
+      playBtn.setAttribute('aria-label', playBtn.getAttribute('aria-label').replace('Play', 'Pause'));
       raf = requestAnimationFrame(tick);
     });
   });
@@ -929,17 +975,16 @@
   var tiles = Array.prototype.slice.call(gallery.querySelectorAll('button'));
   var lightbox = document.getElementById('lightbox');
   var lbFrame = document.getElementById('lbFrame');
-  var lbCaption = document.getElementById('lbCaption');
   var currentIndex = 0;
   var lastFocused = null;
 
   function paintFrame(i){
     var tile = tiles[i];
-    var tileClass = Array.prototype.find.call(tile.querySelector('.photo-tile').classList, function(c){
-      return /^g\d$/.test(c);
-    });
-    lbFrame.className = 'lightbox-frame photo-tile ' + tileClass;
-    lbCaption.textContent = tile.getAttribute('data-caption');
+    var img = tile.querySelector('img');
+    lbFrame.className = 'lightbox-frame photo-tile';
+    lbFrame.innerHTML = '<img src="' + img.getAttribute('src') + '" alt="' + img.getAttribute('alt') + '">' +
+      '<span class="lightbox-caption"></span>';
+    lbFrame.querySelector('.lightbox-caption').textContent = tile.getAttribute('data-caption');
   }
   function openLightbox(i){
     currentIndex = i;
